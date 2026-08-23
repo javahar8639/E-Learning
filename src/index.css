@@ -1,0 +1,317 @@
+/* ==========================================================================
+   NovaLearn: Design Tokens & Global Base
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --bg: #faf7f0;
+  --bg-alt: #f2ede1;
+  --bg-raised: #ffffff;
+  --ink: #1e1c17;
+  --ink-soft: #58534a;
+  --ink-faint: #8a8477;
+  --line: #e6e0d2;
+  --line-strong: #d8d0bd;
+
+  --accent: #24493d;
+  --accent-strong: #16302a;
+  --accent-soft: #e6ede9;
+  --accent-tint: #f0f5f2;
+  --gold: #a97d43;
+  --gold-soft: #f4ead9;
+
+  --cream: #fffdf8;
+
+  /* Typography */
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Spacing scale */
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.2rem;
+  --space-4: 1.6rem;
+  --space-5: 2.4rem;
+  --space-6: 3.2rem;
+  --space-7: 4.8rem;
+  --space-8: 6.4rem;
+  --space-9: 9.6rem;
+
+  /* Radius */
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+  --radius-full: 999px;
+
+  /* Shadow */
+  --shadow-s: 0 1px 2px rgba(30, 28, 23, 0.06), 0 1px 1px rgba(30, 28, 23, 0.04);
+  --shadow-m: 0 8px 24px -8px rgba(30, 28, 23, 0.14);
+  --shadow-l: 0 24px 48px -16px rgba(30, 28, 23, 0.22);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-s: 180ms;
+  --dur-m: 320ms;
+  --dur-l: 560ms;
+
+  --container: 1240px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Typography helpers
+   ========================================================================== */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  line-height: 1.15;
+}
+
+.section-sub {
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.1vw, 1.125rem);
+  line-height: 1.65;
+  max-width: 46ch;
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-7);
+}
+
+.section-head--row {
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+/* ==========================================================================
+   Layout helpers
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+section {
+  padding-block: var(--space-8);
+}
+
+#discovery,
+#learning-paths,
+#featured-courses,
+#final-cta {
+  scroll-margin-top: 88px;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  --btn-fg: var(--cream);
+  --btn-bg: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.9rem 1.7rem;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: transform var(--dur-s) var(--ease), box-shadow var(--dur-s) var(--ease), background var(--dur-s) var(--ease), border-color var(--dur-s) var(--ease), color var(--dur-s) var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-m);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--cream);
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+  padding-inline: 0.4rem;
+  border-radius: 0;
+}
+
+.btn-ghost:hover {
+  transform: none;
+  box-shadow: none;
+  color: var(--accent-strong);
+}
+
+.btn-ghost .btn-arrow {
+  transition: transform var(--dur-s) var(--ease);
+}
+
+.btn-ghost:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-sm {
+  padding: 0.65rem 1.2rem;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Reveal-on-scroll
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--dur-l) var(--ease), transform var(--dur-l) var(--ease);
+  will-change: transform, opacity;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 90ms; }
+.reveal-delay-2 { transition-delay: 180ms; }
+.reveal-delay-3 { transition-delay: 270ms; }
+.reveal-delay-4 { transition-delay: 360ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive base
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  :root {
+    --space-8: 5.2rem;
+    --space-9: 7.2rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    padding-inline: var(--space-4);
+  }
+  :root {
+    --space-7: 3.2rem;
+    --space-8: 4rem;
+  }
+  .section-head--row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

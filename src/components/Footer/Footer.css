@@ -1,0 +1,111 @@
+.footer {
+  background: var(--accent-strong);
+  color: rgba(255, 253, 248, 0.8);
+  padding-top: var(--space-8);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+  gap: var(--space-7);
+  padding-bottom: var(--space-7);
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.footer__brand p {
+  margin-top: var(--space-3);
+  max-width: 34ch;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255, 253, 248, 0.62);
+}
+
+.footer__socials {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.footer__socials a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 253, 248, 0.75);
+  transition: color var(--dur-s) var(--ease);
+}
+
+.footer__socials a:hover {
+  color: var(--gold-soft);
+}
+
+.footer__groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.footer__group h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 253, 248, 0.45);
+  margin-bottom: var(--space-4);
+}
+
+.footer__group ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__group a {
+  font-size: 0.92rem;
+  color: rgba(255, 253, 248, 0.78);
+  transition: color var(--dur-s) var(--ease);
+}
+
+.footer__group a:hover {
+  color: var(--cream);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
+  align-items: center;
+  padding-block: var(--space-5);
+  border-top: 1px solid rgba(255, 253, 248, 0.12);
+  font-size: 0.82rem;
+  color: rgba(255, 253, 248, 0.5);
+}
+
+.footer__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: rgba(255, 253, 248, 0.6);
+}
+
+@media (max-width: 900px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 560px) {
+  .footer__groups {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

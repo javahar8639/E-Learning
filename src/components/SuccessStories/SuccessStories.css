@@ -1,0 +1,120 @@
+.stories__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.story-card {
+  position: relative;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-m) var(--ease), box-shadow var(--dur-m) var(--ease);
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-m);
+}
+
+.story-card__quote-icon {
+  color: var(--accent-soft);
+}
+
+.story-card__outcome {
+  display: inline-block;
+  width: fit-content;
+  margin-top: var(--space-3);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-soft);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-full);
+}
+
+.story-card__text {
+  margin-top: var(--space-4);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--ink);
+  flex: 1;
+}
+
+.story-card__person {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+.story-card__person img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.story-card__person strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.story-card__person span {
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+
+.stories__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--line);
+}
+
+.stories__stat {
+  text-align: center;
+}
+
+.stories__stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.stories__stat-label {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 900px) {
+  .stories__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stories__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 480px) {
+  .stories__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
