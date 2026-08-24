@@ -41,15 +41,7 @@ export default function Navbar({ onSearch, onOpenLogin }) {
       <div className="container navbar__inner">
         <a href="#top" className="navbar__brand">
           <span className="navbar__mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path
-                d="M4 18V6l8 9 8-9v12"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            N
           </span>
           NovaLearn
         </a>

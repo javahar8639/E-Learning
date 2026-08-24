@@ -16,6 +16,11 @@
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--cream);
+  transition: color var(--dur-s) var(--ease);
+}
+
+.footer__logo:hover {
+  color: var(--gold-soft);
 }
 
 .footer__brand p {

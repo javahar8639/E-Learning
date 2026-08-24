@@ -156,6 +156,15 @@
   padding: var(--space-3) var(--space-4);
   box-shadow: var(--shadow-m);
   animation: card-float 5s var(--ease) infinite;
+  transition: box-shadow var(--dur-m) var(--ease);
+}
+
+.hero__card:hover {
+  box-shadow: var(--shadow-l);
+}
+
+.hero__card:hover .hero__card-icon {
+  transform: scale(1.12);
 }
 
 .hero__card strong {
@@ -180,6 +189,7 @@
   background: var(--accent-soft);
   color: var(--accent);
   flex-shrink: 0;
+  transition: transform var(--dur-m) var(--ease);
 }
 
 .hero__card--path {

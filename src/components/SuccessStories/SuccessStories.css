@@ -12,16 +12,23 @@
   padding: var(--space-5);
   display: flex;
   flex-direction: column;
-  transition: transform var(--dur-m) var(--ease), box-shadow var(--dur-m) var(--ease);
+  transition: transform var(--dur-m) var(--ease), box-shadow var(--dur-m) var(--ease), border-color var(--dur-m) var(--ease);
 }
 
 .story-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-m);
+  border-color: var(--line-strong);
 }
 
 .story-card__quote-icon {
   color: var(--accent-soft);
+  transition: color var(--dur-m) var(--ease), transform var(--dur-m) var(--ease);
+}
+
+.story-card:hover .story-card__quote-icon {
+  color: var(--accent);
+  transform: scale(1.1) rotate(-4deg);
 }
 
 .story-card__outcome {
@@ -61,6 +68,11 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  transition: transform var(--dur-m) var(--ease);
+}
+
+.story-card:hover .story-card__person img {
+  transform: scale(1.1);
 }
 
 .story-card__person strong {
@@ -85,6 +97,11 @@
 
 .stories__stat {
   text-align: center;
+  transition: transform var(--dur-m) var(--ease);
+}
+
+.stories__stat:hover {
+  transform: translateY(-3px);
 }
 
 .stories__stat-value {
@@ -93,6 +110,11 @@
   font-size: clamp(2rem, 3.4vw, 2.7rem);
   color: var(--accent);
   font-weight: 500;
+  transition: color var(--dur-m) var(--ease);
+}
+
+.stories__stat:hover .stories__stat-value {
+  color: var(--accent-strong);
 }
 
 .stories__stat-label {

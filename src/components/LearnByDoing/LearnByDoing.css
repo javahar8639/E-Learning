@@ -160,6 +160,11 @@
   color: var(--ink-faint);
   padding: 0.4rem 0.5rem;
   border-radius: var(--radius-s);
+  transition: background var(--dur-s) var(--ease);
+}
+
+.mockup__lesson:not(.mockup__lesson--active):hover {
+  background: var(--bg-alt);
 }
 
 .mockup__lesson-icon {
@@ -277,6 +282,12 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-full);
   padding: 0.3rem 0.7rem;
+  transition: transform var(--dur-s) var(--ease), border-color var(--dur-s) var(--ease);
+}
+
+.mockup__badge:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
 }
 
 .mockup__badge--gold {

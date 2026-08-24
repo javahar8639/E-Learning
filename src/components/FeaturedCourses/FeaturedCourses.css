@@ -107,6 +107,11 @@
   line-height: 1.35;
   color: var(--ink);
   min-height: 3.2em;
+  transition: color var(--dur-m) var(--ease);
+}
+
+.course-card:hover .course-card__title {
+  color: var(--accent);
 }
 
 .course-card__instructor {
@@ -122,6 +127,11 @@
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  transition: transform var(--dur-m) var(--ease);
+}
+
+.course-card:hover .course-card__instructor img {
+  transform: scale(1.1);
 }
 
 .course-card__instructor strong {
