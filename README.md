@@ -1,79 +1,252 @@
-# NovaLearn
+# 🎓 NovaLearn
 
-A course marketplace landing page built with React and Vite. Browse courses by category, search across courses and learning paths, and view curated learning paths that string multiple courses into one sequence.
+**NovaLearn** is a course marketplace landing page built with **React 19** and **Vite**. It lets visitors browse courses by category, search across courses and learning paths, and explore curated learning paths that group multiple courses into one guided sequence.
 
-## Main Features
+> Built as a **frontend-only** experience with a focus on **category-driven discovery**, **live search/filtering**, and **scroll-based motion**.
 
-- Category-based course discovery with six starting categories (AI & Technology, Design, Coding, Business, Marketing, Creative Skills)
-- Live search across course titles, categories, instructors, and levels
-- Search also filters learning paths by title, description, category, and level
-- Curated learning paths, each broken into stages with duration, course count, and project count
-- Featured course grid with instructor info, ratings, duration, level, and project count per card
-- "Learn by doing" section with a mock course player preview (lesson list, progress bar, video preview, task checklist)
-- Learner success stories with outcome tags and platform stats
-- Login modal (UI only, no backend wired up yet)
-- Responsive layout with a mobile nav drawer and collapsible search bar
-- Scroll-triggered reveal animations, respecting `prefers-reduced-motion`
+---
 
-## User Flow
+## ✨ Features
 
-1. Visitor lands on the hero section and either searches directly or browses by category
-2. Selecting a category or search term filters the Learning Paths and Featured Courses sections below
-3. Visitor can clear the filter from a "View all courses" button in either section
-4. Clicking "View course" or "View path" on a card scrolls to the final call-to-action
-5. Visitor can open the login modal from the navbar to log in, or use "Start Learning" to reach the sign-up call-to-action
-6. Footer links jump to the relevant filtered section (e.g. clicking "Design" in the footer filters courses by that category)
+### 🔍 Course Discovery
 
-## Technology Used
+A category grid drives the browsing experience.
 
-- React 19
-- Vite 6 (dev server and build tooling)
-- Plain CSS with custom properties for theming (no CSS framework)
-- IntersectionObserver-based scroll reveal (custom hook, no animation library)
-- Netlify config included for static deployment
+* **Six categories**: AI & Technology, Design, Coding, Business, Marketing, Creative Skills
+* **"All Courses" toggle** alongside the category cards, with a live course count
+* Selecting a category filters both the **Learning Paths** and **Featured Courses** sections at once
 
-## Project Structure
+### 🛣️ Learning Paths
 
+Each path strings several courses into one sequence instead of a flat catalog.
+
+Each path includes:
+
+* **Title, category, and description**
+* **Duration, course count, and project count**
+* **Stage breakdown** (Learn → Practice → Build → Master)
+* A cover image and level tag (e.g. "Beginner friendly", "Intermediate")
+
+### 📚 Featured Courses
+
+A searchable/filterable grid of individual course cards.
+
+* **Instructor info**: name, role, and avatar
+* **Rating and review count**
+* **Duration, level, project count, and learner count**
+* Hover state reveals a **"View course"** call-to-action over the thumbnail
+
+### 🧑‍💻 Search & Filtering
+
+Includes:
+
+* A search bar in the hero that matches against course **title, category, instructor, and level**
+* The same query also filters learning paths by **title, description, category, and level**
+* Search and category filters are mutually exclusive — picking one clears the other
+* An empty-state message and **"View all courses"** reset when nothing matches
+
+### 💬 Success Stories
+
+* Testimonial cards with **name, outcome tag, quote, and current role**
+* A platform stats row (learners, courses, instructors, satisfaction)
+
+### 🔐 Login
+
+* A **login modal** with email/password fields and validation on the inputs
+* Submitting shows a status message
+
+> **Backend/authentication is not implemented** — the form does not send data anywhere; it only confirms submission in the UI.
+
+### 📱 Responsive Design
+
+Includes:
+
+* Responsive grid layouts across course, path, and testimonial sections
+* A **mobile nav drawer** that replaces the desktop nav links below 900px
+* A collapsible search bar in the navbar
+* Layout reflow for the hero, "Learn by Doing" mockup, and footer at smaller breakpoints
+
+### 🎨 Animations & Accessibility
+
+* Scroll-triggered **reveal animations** via a shared `IntersectionObserver` hook, staggered per grid item
+* Respects **`prefers-reduced-motion`** — animations and smooth scrolling are disabled when set
+* Hover feedback (color/border/transform transitions) across cards, buttons, and nav elements
+* Smooth in-page scrolling to sections via anchor links
+
+---
+
+## 🔄 User Flow
+
+```text
+Hero (search or browse)
+        ↓
+Category selected OR search term entered
+        ↓
+Learning Paths + Featured Courses filtered
+        ↓
+Course/path card clicked ("View course" / "View path")
+        ↓
+Scrolls to Final CTA
 ```
+
+From anywhere on the page, the navbar or footer links can also jump directly to a filtered section — for example, clicking a category name in the footer scrolls to Featured Courses already filtered by that category. The login modal is a separate flow, opened from the navbar and closed via the close button, backdrop click, or Escape key.
+
+---
+
+## 🧩 Project Structure
+
+```text
 src/
-  components/
-    Navbar/            Sticky nav, mobile menu, search toggle
-    Hero/               Landing section with search bar and category chips
-    CourseDiscovery/    Category grid and "All Courses" toggle
-    LearningPaths/      Curated path rows with stage breakdown
-    FeaturedCourses/    Filtered/searchable course grid
-    LearnByDoing/       Mock course player preview section
-    SuccessStories/     Testimonials and platform stats
-    FinalCTA/           Closing call-to-action section
-    Footer/             Site footer with category shortcuts
-    ui/                 Shared pieces: Icon, LoginModal, Reveal wrapper
-  data/
-    categories.js       Category list (id, label, count, icon, blurb)
-    courses.js          Course records used by discovery and featured sections
-    learningPaths.js    Learning path records with stages and stats
-    testimonials.js     Success story quotes and platform stats
-  hooks/
-    useReveal.js        Shared IntersectionObserver hook for scroll animations
-  utils/
-    scroll.js           Scroll-to-section helper (reduced-motion aware)
-  App.jsx               Top-level state: active category, search query, login modal
-  main.jsx              React root
-  index.css             Design tokens, base styles, buttons, reveal animation
+├── components/
+│   ├── Navbar/
+│   │   └── Sticky nav, mobile menu, search toggle
+│   │
+│   ├── Hero/
+│   │   └── Search bar, category chips, floating stat cards
+│   │
+│   ├── CourseDiscovery/
+│   │   └── Category grid and "All Courses" toggle
+│   │
+│   ├── LearningPaths/
+│   │   └── Curated path rows with stage breakdown
+│   │
+│   ├── FeaturedCourses/
+│   │   └── Filtered/searchable course grid
+│   │
+│   ├── LearnByDoing/
+│   │   └── Mock course player preview (lessons, progress, video, task)
+│   │
+│   ├── SuccessStories/
+│   │   └── Testimonials and platform stats
+│   │
+│   ├── FinalCTA/
+│   │   └── Closing call-to-action section
+│   │
+│   ├── Footer/
+│   │   └── Site footer with category shortcuts
+│   │
+│   └── ui/
+│       ├── Icon.jsx (shared inline SVG icon set)
+│       ├── LoginModal.jsx (login dialog)
+│       └── Reveal.jsx (scroll-reveal wrapper)
+│
+├── data/
+│   ├── categories.js
+│   ├── courses.js
+│   ├── learningPaths.js
+│   └── testimonials.js
+│
+├── hooks/
+│   └── useReveal.js
+│
+├── utils/
+│   └── scroll.js
+│
+├── App.jsx
+├── main.jsx
+└── index.css
 ```
 
-## Running Locally
+**Note:** this mirrors the actual folder layout in `src/` — no files or folders were added for this document.
 
+---
+
+## 🛠️ Tech Stack
+
+| Technology     | Usage                                          |
+| -------------- | ----------------------------------------------- |
+| **React 19**   | UI components and state management             |
+| **Vite 6**     | Dev server and production build tooling         |
+| **CSS**        | Styling via custom properties (design tokens)   |
+| **IntersectionObserver** | Scroll-triggered reveal animations   |
+| **Netlify**    | Static deployment config (`netlify.toml`)       |
+
+> No CSS framework or animation library was used — styling and reveal animations are hand-written, using CSS custom properties and a small custom hook.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd E-LEARNING
 ```
+
+### 2. Install dependencies
+
+```bash
 npm install
+```
+
+### 3. Start the development server
+
+```bash
 npm run dev
 ```
 
-The app runs at `http://localhost:5173` by default.
-
-## Building for Production
-
+```text
+http://localhost:5173
 ```
+
+---
+
+## 📦 Production Build
+
+```bash
 npm run build
 ```
 
-Output is written to `dist/`.
+```text
+dist/
+```
+
+---
+
+## 📌 Current Scope
+
+The current version focuses on the browsing/discovery experience and the visual design system — it's a frontend build with no live backend.
+
+### Implemented
+
+* ✅ Category-based course discovery
+* ✅ Live search across courses and learning paths
+* ✅ Curated, multi-stage learning paths
+* ✅ Featured course grid with instructor/rating/meta info
+* ✅ Success stories and platform stats
+* ✅ Login modal UI
+* ✅ Responsive layout with mobile navigation
+* ✅ Scroll-reveal animations with reduced-motion support
+
+### Not Yet Implemented
+
+* ⏳ Backend/API integration
+* ⏳ Real authentication (login currently only simulates submission)
+* ⏳ Individual course/path detail pages
+* ⏳ Persisted user data (progress, enrollments)
+
+---
+
+## 🔮 Future Improvements
+
+* **Wire up a real backend** for authentication and course data
+* **Add dedicated course/path detail pages** instead of scrolling to the CTA
+* **Persist search/filter state** in the URL for shareable links
+* **Add pagination or infinite scroll** to the featured course grid
+* **Introduce automated tests** for filtering and search logic
+
+---
+
+## 👩‍💻 What I Worked On
+
+This is a frontend-only build. My work covered:
+
+* **Component architecture** — splitting the page into self-contained section components (Navbar, Hero, CourseDiscovery, LearningPaths, FeaturedCourses, LearnByDoing, SuccessStories, FinalCTA, Footer)
+* **State management** — category/search state lifted to `App.jsx`, driving both the Learning Paths and Featured Courses sections from a single source of truth
+* **Search/filtering logic** — matching search terms against course and path fields, with fallback behavior when a search returns no path matches
+* **Reusable components** — a shared `Icon` component for inline SVGs and a `Reveal` wrapper for scroll animations
+* **Responsive design** — breakpoints for the nav, hero, course grid, and path rows
+* **Animations** — the `useReveal` hook and its shared `IntersectionObserver`, plus hover transitions across cards and buttons
+
+The current implementation can be extended by connecting the data layer to a real API and adding routed detail pages, without needing to change the section components themselves.
