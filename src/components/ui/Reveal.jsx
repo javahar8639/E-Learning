@@ -6,9 +6,11 @@ import { useReveal } from "../../hooks/useReveal";
  * `delay` (0-4) applies a staggered transition-delay class.
  */
 export default function Reveal({ as: Tag = "div", delay = 0, className = "", children, ...rest }) {
-  const ref = useReveal();
+  const { ref, visible } = useReveal();
   const delayClass = delay ? `reveal-delay-${delay}` : "";
-  const classes = ["reveal", delayClass, className].filter(Boolean).join(" ");
+  const classes = ["reveal", visible ? "is-visible" : "", delayClass, className]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <Tag ref={ref} className={classes} {...rest}>
