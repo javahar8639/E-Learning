@@ -4,6 +4,9 @@
 
 > Built as a **frontend-only** experience with a focus on **category-driven discovery**, **live search/filtering**, and **scroll-based motion**.
 
+🔗 **GitHub**: https://github.com/javahar8639/E-Learning
+🌐 **Live Demo**: https://hilarious-gumption-8e4789.netlify.app/
+
 ---
 
 ## ✨ Features
